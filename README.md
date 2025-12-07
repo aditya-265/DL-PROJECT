@@ -6,8 +6,8 @@ A deep learning-based system for automating the detection and classification of 
 Mango trees are susceptible to various diseases that can significantly reduce yield. Manual identification is time-consuming and requires expertise. This project utilizes Computer Vision and Deep Learning to classify leaf images into **8 distinct categories** with high accuracy.
 
 <p align="center">
-  <img src="images/prediction.png" width="45%" alt="Prediction Example">
-  <img src="images/model_accuracy_and_model_loss.png" width="45%" alt="Training Graphs">
+  <img src="images/prediction.jpg" width="45%" alt="Prediction Example">
+  <img src="images/model_accuracy_and_model_loss.jpg" width="45%" alt="Training Graphs">
 </p>
 
 ## 📂 Dataset Details
@@ -34,7 +34,7 @@ Mango trees are susceptible to various diseases that can significantly reduce yi
 
 ### 1. Class Distribution
 *Understanding the dataset balance before training.*
-![Class Distribution Chart](images/class_distribution.png)
+![Class Distribution Chart](images/class_distribution.jpg)
 
 ### 2. Model Performance
 *Our EfficientNetB0 model achieves **~92-98% accuracy** on the validation set.*
@@ -49,7 +49,7 @@ Mango trees are susceptible to various diseases that can significantly reduce yi
 
 ### 3. Confusion Matrix
 *Visualizing misclassifications to understand model behavior.*
-![Confusion Matrix](images/confusion_matrix.png)
+![Confusion Matrix](images/confusion_matrix.jpg)
 
 ## 🛠️ Installation & Setup
 
