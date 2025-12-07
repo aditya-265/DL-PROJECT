@@ -31,7 +31,7 @@ Mango trees are susceptible to various diseases that can significantly reduce yi
 
 ### 1. Class Distribution
 *Understanding the dataset balance before training.*
-![Class Distribution Chart](image_349d62.png)
+![alt text](<WhatsApp Image 2025-12-07 at 00.23.36_2137965d.jpg>)
 
 ### 2. Model Performance
 *Our EfficientNetB0 model achieves **~92-98% accuracy** on the validation set.*
@@ -46,7 +46,7 @@ Mango trees are susceptible to various diseases that can significantly reduce yi
 
 ### 3. Confusion Matrix
 *Visualizing misclassifications to understand model behavior.*
-![Confusion Matrix](image_27df74.png)
+![alt text](<WhatsApp Image 2025-12-07 at 03.14.41_25536b5c.jpg>)
 
 ## 🛠️ Installation & Setup
 
