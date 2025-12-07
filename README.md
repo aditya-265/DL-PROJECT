@@ -4,8 +4,11 @@ A deep learning-based system for automating the detection and classification of 
 
 ## 📌 Project Overview
 Mango trees are susceptible to various diseases that can significantly reduce yield. Manual identification is time-consuming and requires expertise. This project utilizes Computer Vision and Deep Learning to classify leaf images into **8 distinct categories** with high accuracy.
-![alt text](<WhatsApp Image 2025-12-07 at 03.16.36_5fd2926b.jpg>)
-![alt text](<WhatsApp Image 2025-12-07 at 03.20.06_6834f9e9.jpg>)
+
+<p align="center">
+  <img src="images/prediction.png" width="45%" alt="Prediction Example">
+  <img src="images/model_accuracy_and_model_loss.png" width="45%" alt="Training Graphs">
+</p>
 
 ## 📂 Dataset Details
 * **Source:** Mango Leaf Disease Dataset
@@ -31,7 +34,7 @@ Mango trees are susceptible to various diseases that can significantly reduce yi
 
 ### 1. Class Distribution
 *Understanding the dataset balance before training.*
-![alt text](<WhatsApp Image 2025-12-07 at 00.23.36_2137965d.jpg>)
+![Class Distribution Chart](images/class_distribution.png)
 
 ### 2. Model Performance
 *Our EfficientNetB0 model achieves **~92-98% accuracy** on the validation set.*
@@ -46,7 +49,7 @@ Mango trees are susceptible to various diseases that can significantly reduce yi
 
 ### 3. Confusion Matrix
 *Visualizing misclassifications to understand model behavior.*
-![alt text](<WhatsApp Image 2025-12-07 at 03.14.41_25536b5c.jpg>)
+![Confusion Matrix](images/confusion_matrix.png)
 
 ## 🛠️ Installation & Setup
 
@@ -58,7 +61,7 @@ Mango trees are susceptible to various diseases that can significantly reduce yi
 
 1. **Clone the repository:**
    ```bash
-   git clone [https://github.com/aditya-265/DL-PROJECT.git](https://github.com/aditya-265/DL-PROJECT.git)
+   git clone https://github.com/aditya-265/DL-PROJECT.git
    cd DL-PROJECT
 2. pip install tensorflow opencv-python matplotlib seaborn pandas scikit-learn
 3. python main.py
