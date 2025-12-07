@@ -5,16 +5,25 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import cv2
 from PIL import Image
+
 import tensorflow as tf
 from tensorflow import keras
 from tensorflow.keras import layers
-from tensorflow.keras.applications.efficientnet import preprocess_input
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Conv2D, MaxPooling2D, Flatten, Dense, Dropout, BatchNormalization
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
-from tensorflow.keras.applications import EfficientNetB0
 from tensorflow.keras.optimizers import Adam
 from tensorflow.keras.callbacks import EarlyStopping, ReduceLROnPlateau, ModelCheckpoint
+
+# --- FIX FOR PYLANCE IMPORT ERROR ---
+# Instead of importing 'preprocess_input' directly, we import the module alias.
+# This prevents the "Import could not be resolved" red line in VS Code.
+import tensorflow.keras.applications.efficientnet as efficientnet
+from tensorflow.keras.applications import EfficientNetB0
+
+# Create the shortcut variable so your code still works as expected
+preprocess_input = efficientnet.preprocess_input 
+
 from sklearn.metrics import classification_report, confusion_matrix
 import warnings
 warnings.filterwarnings('ignore')
@@ -329,15 +338,23 @@ class MangoDiseaseClassifier:
         img = Image.open(image_path)
         original_img = img.copy()
         img = img.resize((self.IMG_WIDTH, self.IMG_HEIGHT))
-        img_array = np.array(img) / 255.0
+        
+        # --- FIX STARTS HERE ---
+        # 1. Do NOT divide by 255.0 here. EfficientNet expects raw 0-255 values.
+        img_array = np.array(img)
         
         # Handle different image formats
         if len(img_array.shape) == 2:  # Grayscale
             img_array = np.stack([img_array] * 3, axis=-1)
-        elif img_array.shape[-1] == 4:  #RGBA
+        elif img_array.shape[-1] == 4:  # RGBA
             img_array = img_array[:, :, :3]
         
         img_array = np.expand_dims(img_array, axis=0)
+        
+        # 2. Use the specific preprocessing function for EfficientNet
+        from tensorflow.keras.applications.efficientnet import preprocess_input
+        img_array = preprocess_input(img_array)
+        # --- FIX ENDS HERE ---
         
         # Make prediction
         predictions = self.model.predict(img_array)
@@ -359,16 +376,16 @@ class MangoDiseaseClassifier:
         plt.barh(y_pos, predictions[0], color='skyblue')
         plt.yticks(y_pos, self.class_names)
         plt.xlabel('Probability')
-        plt.title(f'Prediction: {predicted_class}\\nConfidence: {confidence:.2%}')
+        plt.title(f'Prediction: {predicted_class}\nConfidence: {confidence:.2%}')
         plt.gca().invert_yaxis()
         
         plt.tight_layout()
         plt.show()
         
-        print(f"\\nPrediction Results:")
+        print(f"\nPrediction Results:")
         print(f"  Disease: {predicted_class}")
         print(f"  Confidence: {confidence:.2%}")
-        print(f"\\nAll probabilities:")
+        print(f"\nAll probabilities:")
         for i, prob in enumerate(predictions[0]):
             print(f"  {self.class_names[i]}: {prob:.2%}")
         
