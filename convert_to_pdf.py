@@ -9,11 +9,10 @@ def create_simple_pdf():
 # Mango Leaf Disease Classification Report
 
 **Group Members:**
-- Devit Shah (102217044)
-- Samarth Kanwal (102217056) 
-- Nayjot Singh (102217046)
-- Pragun Sharma (102217043)
-
+- Aditya Gupta (102215265)
+- Madhav Gupta (102395010)
+- Sakshi Rana (102215293)
+- Diksha Sood (102395018)
 [Rest of your report content...]
 """
     
