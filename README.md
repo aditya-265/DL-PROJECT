@@ -66,3 +66,9 @@ Mango trees are susceptible to various diseases that can significantly reduce yi
    cd DL-PROJECT
 2. pip install tensorflow opencv-python matplotlib seaborn pandas scikit-learn
 3. python main.py
+
+## Authors
+1. Aditya Gupta
+2. Madhav Gupta
+3. Sakshi Rana 
+4. Diksha Sood
